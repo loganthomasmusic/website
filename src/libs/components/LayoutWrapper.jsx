@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { AppBar, Toolbar, Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 import { Container, Content, Logo, MenuItem } from "../design-system";
 
 /**
@@ -10,16 +9,16 @@ import { Container, Content, Logo, MenuItem } from "../design-system";
  * @component
  * @param {string} img_uri - The URI of the logo image.
  * @param {Array<{ Menu: string, link: string }>} menuItems - The list of menu items, each containing a Menu label and a link.
+ * @param {Function} handleMenuClick - The function to be called when a menu item is clicked.
  * @param {React.ReactNode} children - The children components to be rendered within the layout.
  * @returns {JSX.Element} - The rendered component.
  */
-export const LayoutWrapper = ({ img_uri, menuItems, children }) => {
-  const navigate = useNavigate();
-
-  const handleMenuClick = (link) => {
-    navigate(link);
-  };
-
+export const LayoutWrapper = ({
+  img_uri,
+  menuItems,
+  children,
+  handleMenuClick,
+}) => {
   return (
     <Container>
       <AppBar position="static">
@@ -51,5 +50,6 @@ LayoutWrapper.propTypes = {
       link: PropTypes.string.isRequired,
     })
   ).isRequired,
+  handleMenuClick: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
 };
