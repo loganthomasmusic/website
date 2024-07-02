@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Typography, Box } from "@mui/material";
+import { StyledTextBox, StyledHeader, StyledParagraph } from "../design-system";
 
 /**
  * A component that displays a header and text in a box.
@@ -15,14 +15,14 @@ export const TextBoxWithHeader = ({ header, text }) => {
   const paragraphs = Array.isArray(text) ? text : [text];
 
   return (
-    <Box>
-      <Typography variant="h1">{header}</Typography>
+    <StyledTextBox>
+      <StyledHeader variant="h1">{header}</StyledHeader>
       {paragraphs.map((paragraph, index) => (
-        <Typography key={index} variant="body1">
+        <StyledParagraph key={index} variant="body1">
           {paragraph}
-        </Typography>
+        </StyledParagraph>
       ))}
-    </Box>
+    </StyledTextBox>
   );
 };
 

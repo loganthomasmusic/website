@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
+import { AppBar, Toolbar, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { Container, Content, Logo, MenuItem } from "../design-system";
 
 /**
  * A component that wraps the layout with an AppBar and menu items.
@@ -20,25 +21,25 @@ export const LayoutWrapper = ({ img_uri, menuItems, children }) => {
   };
 
   return (
-    <Box>
+    <Container>
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <img src={img_uri} alt="Logo" />
+            <Logo src={img_uri} alt="Logo" />
           </Typography>
           {menuItems.map((menuItem, index) => (
-            <Button
+            <MenuItem
               key={index}
               color="inherit"
               onClick={() => handleMenuClick(menuItem.link)}
             >
               {menuItem.Menu}
-            </Button>
+            </MenuItem>
           ))}
         </Toolbar>
       </AppBar>
-      {children}
-    </Box>
+      <Content>{children}</Content>
+    </Container>
   );
 };
 

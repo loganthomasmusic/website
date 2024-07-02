@@ -3,13 +3,13 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { LayoutWrapper } from "../components";
 
 import { RootRoutes } from "./RootRoutes";
-// import AboutRoutes from "./AboutRoutes";
-// import MusicRoutes from "./MusicRoutes";
-// import ContactRoutes from "./ContactRoutes";
+import { AboutRoutes } from "./AboutRoutes";
+import { MusicRoutes } from "./MusicRoutes";
+import { ContactRoutes } from "./ContactRoutes";
 
 export const AppRouter = () => {
   const layoutWrapperProps = {
-    img_uri: "https://via.placeholder.com/150",
+    img_uri: "/img/ico/logo.ico", // TODO - Icon is cut off, replace logo with better icon
     menuItems: [
       { Menu: "Home", link: "/" },
       { Menu: "About", link: "/about" },
@@ -25,9 +25,30 @@ export const AppRouter = () => {
   return (
     <Router>
       <Routes>
-        {/* <Route path="/about" element={<AboutRoutes />} />
-        <Route path="/music" element={<MusicRoutes />} />
-        <Route path="/contact" element={<ContactRoutes />} /> */}
+        <Route
+          path="/about"
+          element={
+            <LayoutWrapperWithProps>
+              <AboutRoutes />
+            </LayoutWrapperWithProps>
+          }
+        />
+        <Route
+          path="/music"
+          element={
+            <LayoutWrapperWithProps>
+              <MusicRoutes />
+            </LayoutWrapperWithProps>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <LayoutWrapperWithProps>
+              <ContactRoutes />
+            </LayoutWrapperWithProps>
+          }
+        />
         <Route
           path="/"
           element={
