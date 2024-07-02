@@ -7,6 +7,7 @@ import { AboutRoutes } from "./AboutRoutes";
 import { MusicRoutes } from "./MusicRoutes";
 import { ContactRoutes } from "./ContactRoutes";
 import { useLayoutContainer } from "../hooks";
+import { NotFoundPage } from "../pages";
 
 export const AppRouter = () => {
   const { handleMenuClick } = useLayoutContainer();
@@ -60,6 +61,8 @@ export const AppRouter = () => {
             </LayoutWrapperWithProps>
           }
         />
+
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );
