@@ -1,25 +1,10 @@
 import React from "react";
-import { styled } from "@mui/material/styles";
-
+import {
+  StyledFooter,
+  StyledSocialMedia,
+  StyledSocialIcon,
+} from "../design-system";
 export function Footer() {
-  const StyledFooter = styled("footer")({
-    backgroundColor: "#333",
-    color: "#fff",
-    padding: "20px",
-    textAlign: "center",
-  });
-
-  const StyledSocialMedia = styled("div")({
-    display: "flex",
-    justifyContent: "center",
-    gap: "10px",
-  });
-
-  const StyledSocialIcon = styled("img")({
-    width: "30px",
-    height: "30px",
-  });
-
   return (
     <StyledFooter>
       <p>Find me on</p>
