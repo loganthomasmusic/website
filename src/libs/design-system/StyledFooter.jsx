@@ -4,4 +4,5 @@ export const StyledFooter = styled("footer")({
   color: "#fff",
   padding: "20px",
   textAlign: "center",
+  opacity: 0.9,
 });
