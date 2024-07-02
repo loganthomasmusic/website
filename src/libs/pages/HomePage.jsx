@@ -1,4 +1,4 @@
-import { TextBoxWithHeaderAndProfilePicture } from "../templates";
+import { TextBoxWithHeaderAndProfilePicture } from "../components";
 
 export const HomePage = () => {
   return (
