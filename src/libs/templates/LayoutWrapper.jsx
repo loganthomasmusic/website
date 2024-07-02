@@ -11,6 +11,7 @@ import { Footer, Header } from "../components";
  * @param {Array<{ Menu: string, link: string }>} menuItems - The list of menu items, each containing a Menu label and a link.
  * @param {Function} handleMenuClick - The function to be called when a menu item is clicked.
  * @param {React.ReactNode} children - The children components to be rendered within the layout.
+ * @param {Array<{ href: string, alt: string, src: string }>} socialMediaLinks - The list of social media links, each containing an href, alt text, and src for the icon image.
  * @returns {JSX.Element} - The rendered component.
  */
 export const LayoutWrapper = ({
@@ -18,6 +19,7 @@ export const LayoutWrapper = ({
   menuItems,
   children,
   handleMenuClick,
+  socialMediaLinks,
 }) => {
   return (
     <Container>
@@ -27,7 +29,7 @@ export const LayoutWrapper = ({
         handleMenuClick={handleMenuClick}
       />
       <Content>{children}</Content>
-      <Footer />
+      <Footer socialMediaLinks={socialMediaLinks} />
     </Container>
   );
 };
@@ -42,4 +44,11 @@ LayoutWrapper.propTypes = {
   ).isRequired,
   handleMenuClick: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
+  socialMediaLinks: PropTypes.arrayOf(
+    PropTypes.shape({
+      href: PropTypes.string.isRequired,
+      alt: PropTypes.string.isRequired,
+      src: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };

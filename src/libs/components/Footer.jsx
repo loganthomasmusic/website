@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {
   StyledFooter,
   StyledSocialMedia,
@@ -9,27 +10,10 @@ import {
  * A component that displays a footer with social media links.
  *
  * @component
+ * @param {Array<{ href: string, alt: string, src: string }>} socialMediaLinks - The list of social media links, each containing an href, alt text, and src for the icon image.
  * @returns {JSX.Element} - The rendered component.
  */
-export const Footer = () => {
-  const socialMediaLinks = [
-    {
-      href: "https://www.facebook.com/loganthomasmusic",
-      alt: "Black & white Facebook logo",
-      src: "img/svg/facebook_icon.svg",
-    },
-    {
-      href: "https://www.instagram.com/loganthomasmusic",
-      alt: "Black & white Instagram logo",
-      src: "img/svg/instagram_icon.svg",
-    },
-    {
-      href: "https://www.youtube.com/loganthomasmusic",
-      alt: "Black & white YouTube logo",
-      src: "img/svg/youtube_icon.svg",
-    },
-  ];
-
+export const Footer = ({ socialMediaLinks }) => {
   return (
     <StyledFooter>
       <p>Find me on</p>
@@ -42,4 +26,14 @@ export const Footer = () => {
       </StyledSocialMedia>
     </StyledFooter>
   );
+};
+
+Footer.propTypes = {
+  socialMediaLinks: PropTypes.arrayOf(
+    PropTypes.shape({
+      href: PropTypes.string.isRequired,
+      alt: PropTypes.string.isRequired,
+      src: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
