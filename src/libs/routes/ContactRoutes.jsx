@@ -4,7 +4,7 @@ import { ContactPage } from "../pages";
 export const ContactRoutes = () => {
   return (
     <Routes>
-      <Route path="/*" element={<ContactPage />} />
+      <Route path="/" element={<ContactPage />} />
     </Routes>
   );
 };
