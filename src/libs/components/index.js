@@ -1,2 +1,1 @@
-export * from "./LayoutWrapper";
-export * from "./TextBoxWithHeader"
+export * from "./Footer";

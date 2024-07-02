@@ -1,7 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { AppBar, Toolbar, Typography } from "@mui/material";
-import { Container, Content, Logo, MenuItem } from "../design-system";
+import { Toolbar, Typography } from "@mui/material";
+import {
+  Container,
+  Content,
+  Logo,
+  MenuItem,
+  StyledAppBar,
+} from "../design-system";
+import { Footer } from "../components";
 
 /**
  * A component that wraps the layout with an AppBar and menu items.
@@ -21,7 +28,7 @@ export const LayoutWrapper = ({
 }) => {
   return (
     <Container>
-      <AppBar position="static">
+      <StyledAppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             <Logo src={img_uri} alt="Logo" />
@@ -36,8 +43,9 @@ export const LayoutWrapper = ({
             </MenuItem>
           ))}
         </Toolbar>
-      </AppBar>
+      </StyledAppBar>
       <Content>{children}</Content>
+      <Footer />
     </Container>
   );
 };
